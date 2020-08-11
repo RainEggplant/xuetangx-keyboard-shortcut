@@ -1,0 +1,12 @@
+{
+  "name": "xuetangx-keyboard-shortcut",
+  "description": "Add keyboard shortcut support for XuetangX",
+  "scripts": {
+    "test": "eslint *.js"
+  },
+  "author": "RainEggplant",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.3.1"
+  }
+}
