@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         XuetangX Keyboard Shortcut
 // @namespace    https://raineggplant.com/
-// @version      0.0.1
+// @version      0.0.2
 // @description  增加学堂在线视频对快捷键的支持。
 // @author       RainEggplant
 // @match        *://next.xuetangx.com/*
@@ -17,7 +17,6 @@
   const videoSelector = "video";
   const wrapperSelector = "#qa-video-wrap";
   const timeStep = 10;
-  const volumnStep = 0.1;
 
   const observer = new MutationObserver((mutation) => {
     const wrapper = document.querySelector(wrapperSelector);
@@ -52,20 +51,10 @@
         time = video.currentTime - timeStep;
         video.currentTime = time > 0 ? time : 0;
         break;
-      case 38: // Arrow Up
-        e.preventDefault();
-        volume = video.volume + volumnStep;
-        video.volume = volume < 1 ? volume : 1;
-        break;
       case 39: // Arrow Right
         e.preventDefault();
         time = video.currentTime + timeStep;
         video.currentTime = time < video.duration ? time : video.duration;
-        break;
-      case 40: // Arrow Down
-        e.preventDefault();
-        volume = video.volume - volumnStep;
-        video.volume = volume > 0 ? volume : 0;
         break;
     }
   }
